@@ -16,7 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class SecurityController extends Controller
 {
     /**
-     * @Route("/login", name="connexion ")
+     * @Route("/login", name="connexion")
      */
     public function loginAction(AuthenticationUtils $authUtils)
     {
