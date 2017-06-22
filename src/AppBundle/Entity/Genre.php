@@ -1,3 +1,5 @@
+<?php
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -19,4 +21,5 @@ class Genre
      * @ORM\Column(type="string" length=50)
      */
     private $libelleGenre;
+}
 
