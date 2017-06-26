@@ -38,5 +38,5 @@ security:
     access_control:
       - { path: ^/new, roles: ROLE_USER }
       - { path: ^/annonces, roles: ROLE_USER }
-      - { path: ^/detail, roles: ROLE_USER }
+     # - { path: ^/detail, roles: ROLE_USER }
 

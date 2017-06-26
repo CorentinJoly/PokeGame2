@@ -1,25 +1,30 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: Alexis
+ * Date: 22/06/2017
+ * Time: 11:20
+ */
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="pokemon")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\DresseurRepository")
+ * @ORM\Table(name="_pokemonDresseur")
  */
-class PokemonDresseur implements UserInterface, \Serializable
+class PokemonDresseur
 {
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="idDresseur")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idDresseur;
 
     /**
-     * @ORM\Column(type="string" length=250)
+     * @ORM\Column(type="string", length=250, name="nomDress")
      */
     private $nomDress;
 
@@ -29,58 +34,85 @@ class PokemonDresseur implements UserInterface, \Serializable
     private $pieces;
 
     /**
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="string", length=250, name="mailDress")
      */
     private $mailDress;
 
     /**
-     * @ORM\Column(type="string" length=250)
+     * @ORM\Column(type="string", length=250, name="mdpDress")
      */
     private $mdpDress;
 
     /**
-     * @ORM\Column(type="string" length=250)
+     * @ORM\Column(type="string", length=250, name="confirmationToken")
      */
     private $confirmationToken;
 
     /**
-     * @ORM\Column(type="string" length=250)
+     * @ORM\Column(type="string", length=250, name="confirmationDate")
      */
     private $confirmationDate;
 
-    /**
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
 
-    public function __construct()
+
+    public function setIdDresseur($idDresseur)
     {
-        $this->isActive = true;
-        // may not be needed, see section on salt below
-        // $this->salt = md5(uniqid(null, true));
+        $this->idDresseur = $idDresseur;
+
+        return $this;
     }
 
-    public function getIdUser()
+
+    public function getIdDresseur()
     {
         return $this->idDresseur;
     }
 
-    public function getUsername()
+    public function setNomDresseur($nomDress)
+    {
+        $this->nomDress = $nomDress;
+
+        return $this;
+    }
+
+    public function getNomDresseur()
     {
         return $this->nomDress;
     }
 
-    public function getPieces()
+
+    public function setNbPieces($nbPiece)
+    {
+        $this->pieces = $nbPiece;
+        return $this;
+    }
+
+    public function getNbPiece()
     {
         return $this->pieces;
     }
 
-    public function getMail()
+    public function setMailDress($mailDress)
+    {
+        $this->mailDress = $mailDress;
+
+        return $this;
+    }
+
+
+    public function getMailDress()
     {
         return $this->mailDress;
     }
 
-    public function getPassword()
+    public function setMdpDress($mdpDress)
+    {
+        $this->mdpDress = $mdpDress;
+
+        return $this;
+    }
+
+    public function getMdpDress()
     {
         return $this->mdpDress;
     }
@@ -93,58 +125,5 @@ class PokemonDresseur implements UserInterface, \Serializable
     public function getConfirmationDate()
     {
         return $this->confirmationDate;
-    }
-
-    /**
-     * String representation of object
-     * @link http://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
-     * @since 5.1.0
-     */
-    public function serialize()
-    {
-        // TODO: Implement serialize() method.
-    }
-
-    /**
-     * Constructs the object
-     * @link http://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized <p>
-     * The string representation of the object.
-     * </p>
-     * @return void
-     * @since 5.1.0
-     */
-    public function unserialize($serialized)
-    {
-        // TODO: Implement unserialize() method.
-    }
-
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-
-    /**
-     * Returns the salt that was originally used to encode the password.
-     *
-     * This can return null if the password was not encoded using a salt.
-     *
-     * @return string|null The salt
-     */
-    public function getSalt()
-    {
-        // TODO: Implement getSalt() method.
-    }
-
-    /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
-     */
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
     }
 }

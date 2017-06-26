@@ -9,17 +9,15 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\Pokemon;
 
 class PokemonRepository extends EntityRepository
 {
-    public function findAllOrderedByName()
-    {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT p FROM AppBundle:Product p ORDER BY p.name ASC'
-            )
-            ->getResult();
-    }
 
+    public function getListPokemon()
+    {
+    	$em = $this->getEntityManager();
+    	return $em->createQuery('SELECT p FROM AppBundle:Pokemon p')->getResult();
+    }
 
 }

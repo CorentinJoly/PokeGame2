@@ -1,4 +1,11 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Alexis
+ * Date: 22/06/2017
+ * Time: 11:21
+ */
+
 
 namespace AppBundle\Entity;
 
@@ -21,5 +28,35 @@ class Genre
      * @ORM\Column(type="string" length=50)
      */
     private $libelleGenre;
+
+
+    public function setIdGenre($idGenre)
+    {
+        $this->idGenre = $idGenre;
+
+        return $this;
+    }
+
+
+    public function getIdGenre()
+    {
+        return $this->idGenre;
+    }
+
+    public function setLibelleGenre($libelleGenre)
+    {
+        $this->libelleGenre = $libelleGenre;
+
+        return $this;
+    }
+
+
+    public function getLibelleGenre()
+    {
+        return $this->libelleGenre;
+    }
+
+
+
 }
 
